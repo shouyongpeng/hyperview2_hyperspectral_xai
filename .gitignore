@@ -1,0 +1,15 @@
+# dataset (non-commercial licence, ~330 MB) - download from EOTDL instead
+data/hyperview2/
+data/hyperview2_backup/
+data/HYPERVIEW2/
+data/_hyperview2_tmp/
+# trained models and run outputs
+models/*
+!models/.gitkeep
+outputs/
+# Python / Jupyter / macOS
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store
+_to_delete/
+README.html

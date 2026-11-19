@@ -1,0 +1,15 @@
+# conda env create -f environment.yml && conda activate hyperview2
+# Versions follow the note in the original code (Python 3.10.17, scikit-learn 1.6.1); the rest are unpinned.
+name: hyperview2
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - scikit-learn=1.6.1
+  - numpy
+  - pandas
+  - scipy
+  - matplotlib
+  - seaborn
+  - shap
+  - jupyterlab

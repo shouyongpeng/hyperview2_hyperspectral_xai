@@ -1,9 +1,13 @@
 # Environment uses Python 3.10.17 and scikit-learn 1.6.1
 import pickle
 import warnings
+from pathlib import Path
 
 import numpy as np
 from sklearn.pipeline import Pipeline
+
+# Saved models and preprocessing objects live in <repo>/models/
+MODELS_DIR = Path(__file__).resolve().parent.parent / "models"
 
 
 # Suppress FutureWarning from scikit-learn
@@ -57,23 +61,23 @@ def hype_spectral_wrapper(i):
 
 
     # One Regressor for each target variable
-    with open('HYPERVIEW2_XAI/Hype-Spectral/ExtraTrees_models_dict.pkl', 'rb') as f:
+    with open(MODELS_DIR / 'ExtraTrees_models_dict.pkl', 'rb') as f:
         best_models = pickle.load(f)
     
     # Indices of optimal set of features used during training and to be used for testing (obtained using Recursive Feature Elimination)
-    with open('HYPERVIEW2_XAI/Hype-Spectral/best_features_indices_dict.pkl', 'rb') as f:
+    with open(MODELS_DIR / 'best_features_indices_dict.pkl', 'rb') as f:
         best_features_indices_dict = pickle.load(f)
     
-    with open('HYPERVIEW2_XAI/Hype-Spectral/msi_scaler.pkl', 'rb') as f:
+    with open(MODELS_DIR / 'msi_scaler.pkl', 'rb') as f:
         msi_scaler = pickle.load(f)
     
-    with open('HYPERVIEW2_XAI/Hype-Spectral/pca_msi.pkl', 'rb') as f:
+    with open(MODELS_DIR / 'pca_msi.pkl', 'rb') as f:
         pca_msi = pickle.load(f)
     
-    with open('HYPERVIEW2_XAI/Hype-Spectral/pca_hsi.pkl', 'rb') as f:
+    with open(MODELS_DIR / 'pca_hsi.pkl', 'rb') as f:
         pca_hsi = pickle.load(f)
     
-    with open('HYPERVIEW2_XAI/Hype-Spectral/pca_hsi_filtered.pkl', 'rb') as f:
+    with open(MODELS_DIR / 'pca_hsi_filtered.pkl', 'rb') as f:
         pca_hsi_filtered = pickle.load(f)
 
     # Custom transformer to remove atmospheric bands from HSI data
